@@ -30,10 +30,12 @@ On a recent installation of Security Onion 2.3 I wanted to install **GNOME** and
 
 While Microsoft provides some developer testing images for the general public to use, I'd strongly recommend loading Windows directly from the ISO whenever possible.
 
-## Guidelines
+## Guidelines, Tips & Tricks
 
 Virtualbox users should follow certain principles.
 
 - Treat your VMs like you would a real system. Prefer graceful shutdowns to avoid data corruption and system instability.
 - Use the "Take Snapshot" feature liberally to experiment with risky operations while having a fallback plan.
 - If you closed the session with "save system state" instead of "power off" you will **not** be able to edit resource allocation and various other VM configuration settings.
+- If you lose your menu, RCTRL + C will revert you gack to Windowed mode.
+- If you lose your mouse cursor, RCTRL will snap you out of the VM.
