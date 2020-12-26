@@ -16,7 +16,7 @@ vim --version >> ~/Downloads/deployerlog.txt
 # Install curl
 sudo apt install curl -y
 curl --version >> ~/Downloads/deployerlog.txt
-
+ 
 # Install Virtalbox using latest .deb file
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
@@ -47,7 +47,33 @@ sudo apt install software-properties-common apt-transport-https wget -y
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt install code -y
-code --version >> ~/Downloads/deployerlog.txt
+code --version >> ~/Downloads/deployerlog.txt 
 
+# Activate default dark mode (personal preference)
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+
+# Remove "color profile authentication" popup in XRDP
+sudo touch /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
+sudo cat >> /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla <<EOL
+[Allow Colord all Users]
+Identity=unix-user:*
+Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile
+ResultAny=no
+ResultInactive=no
+ResultActive=yes
+EOL
+sudo rm /var/crash/*
+
+# Remove “Authentication required to refresh system repositories” popup on login via XRDP
+sudo cat >> /etc/polkit-1/localauthority/50-local.d/46-allow-update-repo.pkla <<EOL
+[Allow Package Management all Users]
+Identity=unix-user:*
+Action=org.freedesktop.packagekit.system-sources-refresh
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+EOL
+
+# Wrapup
 echo "Deployment script completed. Here's what is now installed:"
 cat ~/Downloads/deployerlog.txt
