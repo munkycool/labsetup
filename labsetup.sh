@@ -2,6 +2,9 @@
 
 # Homelab deployment automation script
 
+# Activate default dark mode (personal preference)
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+
 cd ~/Downloads
 touch deployerlog.txt
 
@@ -48,9 +51,6 @@ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt install code -y
 code --version >> ~/Downloads/deployerlog.txt 
-
-# Activate default dark mode (personal preference)
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
 # Remove "color profile authentication" popup in XRDP
 sudo touch /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
