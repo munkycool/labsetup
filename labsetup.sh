@@ -5,12 +5,21 @@
 # Activate default dark mode (personal preference)
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
+# Deactivate screen locking, since we're mostly running this as a headless server box via RDP
+gsettings set org.gnome.desktop.screensaver lock-enabled false
+
 cd ~/Downloads
 touch deployerlog.txt
 
 sudo apt update
 sudo apt-get update
 sudo apt upgrade
+
+# Install Open SSH Server, allow firewall, and launch the service on startup
+sudo apt-get install openssh-server
+sudo systemctl start sshd
+sudo ufw allow ssh
+sudo systemctl enable ssh
 
 # Install VIM
 sudo apt install vim -y
@@ -29,8 +38,8 @@ echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian eoan con
 sudo apt update
 sudo apt install linux-headers-$(uname -r) dkms
 sudo apt-get install virtualbox-6.1 -y
-wget https://download.virtualbox.org/virtualbox/6.1.6/Oracle_VM_VirtualBox_Extension_Pack-6.1.6.vbox-extpack
-vboxmanage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.1.6.vbox-extpack
+wget https://download.virtualbox.org/virtualbox/6.1.16/Oracle_VM_VirtualBox_Extension_Pack-6.1.16-140961.vbox-extpack
+vboxmanage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.1.16-140961.vbox-extpack
 virtualbox --version >> ~/Downloads/deployerlog.txt
 
 # Install GNS3
@@ -51,6 +60,13 @@ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt install code -y
 code --version >> ~/Downloads/deployerlog.txt 
+
+# Set favorite apps
+gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'terminal.desktop']"
+gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'files.desktop']"
+gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'virtualbox.desktop']"
+gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'gns3.desktop']"
+gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'code.desktop']"
 
 # Remove "color profile authentication" popup in XRDP
 sudo touch /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
