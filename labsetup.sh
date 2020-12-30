@@ -2,6 +2,9 @@
 
 # Homelab deployment automation script
 
+# Import scripts
+source ./install-virtualbox.sh
+
 # Activate default dark mode (personal preference)
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
@@ -29,18 +32,8 @@ vim --version >> ~/Downloads/deployerlog.txt
 sudo apt install curl -y
 curl --version >> ~/Downloads/deployerlog.txt
  
-# Install Virtalbox using latest .deb file
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian eoan contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
-
-# Install Virtualbox Extension Pack
-sudo apt update
-sudo apt install linux-headers-$(uname -r) dkms
-sudo apt-get install virtualbox-6.1 -y
-wget https://download.virtualbox.org/virtualbox/6.1.16/Oracle_VM_VirtualBox_Extension_Pack-6.1.16-140961.vbox-extpack
-vboxmanage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.1.16-140961.vbox-extpack
-virtualbox --version >> ~/Downloads/deployerlog.txt
+# Install Virtalbox 
+install-virtualbox
 
 # Install GNS3
 sudo add-apt-repository ppa:gns3/ppa
