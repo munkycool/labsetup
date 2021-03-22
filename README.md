@@ -1,6 +1,6 @@
-# labsetup
+# VirtualBox Lab Setup
 
-This repo contains automation for a faster standup of a Ubuntu virtualization server PC. 
+This repo contains automation for a faster standup of a Ubuntu virtualization server PC. This has been tested on Ubuntu Linux 20.10 on a physical PC. 
 
 Step by step:
 - On your personal computer, create a bootable USB flash drive of Ubuntu Linux 20.10 Groovy Gorilla.
@@ -18,3 +18,8 @@ Step by step:
 - `cd ~/github`
 - `git clone https://github.com/lee5378/labsetup.git`
 - `sudo bash ~/github/labsetup/labsetup.sh`
+
+## Resources
+
+- [AWS Security Blog: What is a cyber range and how do you build one on AWS?](https://aws.amazon.com/blogs/security/what-is-cyber-range-how-do-you-build-one-aws/)
+  - You may alternatively wish to host these systems on AWS as EC2 instances. 
