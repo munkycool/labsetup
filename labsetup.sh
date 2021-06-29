@@ -31,6 +31,12 @@ sudo systemctl enable ssh
 # sudo apt install vim -y
 # vim --version >> ~/Downloads/deployerlog.txt
 
+# Install QEMU/KVM
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+
+# Install Virt-Manager
+sudo apt install virt-manager
+
 # Install curl
 sudo apt install curl -y
 curl --version >> ~/Downloads/deployerlog.txt
