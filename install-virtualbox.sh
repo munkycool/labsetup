@@ -1,4 +1,4 @@
-function install-virtualbox {
+# function install-virtualbox {
     # Download Virtalbox using latest .deb file
     wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
     wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
