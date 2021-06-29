@@ -13,6 +13,7 @@ Step by step:
 - `sudo apt install xrdp -y`
 - Check your IP address with `ip a`
 - At this stage, remote into your Ubuntu computer from your host computer using RDP. 
+    - (This makes no sense because all of the directions up till know indicate that you have phisical access to the PC, so why you would remote into the Ubuntu PC I don't know)  
 - `sudo apt install git -y`
 - `mkdir ~/github`
 - `cd ~/github`
