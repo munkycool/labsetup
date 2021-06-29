@@ -28,15 +28,15 @@ sudo ufw allow ssh
 sudo systemctl enable ssh
 
 # Install VIM
-sudo apt install vim -y
-vim --version >> ~/Downloads/deployerlog.txt
+# sudo apt install vim -y
+# vim --version >> ~/Downloads/deployerlog.txt
 
 # Install curl
 sudo apt install curl -y
 curl --version >> ~/Downloads/deployerlog.txt
  
 # Install Virtalbox 
-install-virtualbox
+# install-virtualbox
 
 # Install GNS3
 sudo add-apt-repository ppa:gns3/ppa
@@ -47,8 +47,8 @@ sudo usermod -aG kvm $(whoami)
 sudo apt install xtightvncviewer -y
 
 # Install Git
-sudo apt install git -y
-git --version >> ~/Downloads/deployerlog.txt
+# sudo apt install git -y
+# git --version >> ~/Downloads/deployerlog.txt
 
 # Install VS Code
 sudo apt install software-properties-common apt-transport-https wget -y
@@ -58,11 +58,11 @@ sudo apt install code -y
 code --version >> ~/Downloads/deployerlog.txt 
 
 # Set favorite apps
-gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'terminal.desktop']"
-gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'files.desktop']"
-gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'virtualbox.desktop']"
-gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'gns3.desktop']"
-gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'code.desktop']"
+# gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'terminal.desktop']"
+# gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'files.desktop']"
+# gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'virtualbox.desktop']"
+# gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'gns3.desktop']"
+# gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'code.desktop']"
 
 # Remove "color profile authentication" popup in XRDP
 sudo touch /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
