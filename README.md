@@ -1,6 +1,6 @@
 # VirtualBox Lab Setup
 
-This repo contains automation for a faster standup of a Ubuntu virtualization server PC. These are my personal changes to the orgiginal project, that, in my huble opinion, make it better. This has been tested on Ubuntu Linux 20.10 on a physical PC. 
+This repo contains automation for a faster standup of a Ubuntu virtualization server PC. These are my personal changes to the orgiginal project, that, in my huble opinion, make it better. This version of the scrpit hasn't been tested at all, but me, in my infinite wisdom, garentee that it'll at least do *something*
 
 Step by step:
 - On your personal computer, create a bootable USB flash drive of Ubuntu Linux 20.10 Groovy Gorilla.
