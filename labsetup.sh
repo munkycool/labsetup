@@ -3,16 +3,16 @@
 # Homelab deployment automation script
 
 # Import scripts
-source ./install-virtualbox.sh
+# source ./install-virtualbox.sh
 
 # Activate default dark mode (personal preference)
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+# gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
 # Deactivate screen locking, since we're mostly running this as a headless server box via RDP
 gsettings set org.gnome.desktop.screensaver lock-enabled false
 
 # Set Gnome Terminal's colors (personal preference)
-dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
+# dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
 
 cd ~/Downloads
 touch deployerlog.txt
