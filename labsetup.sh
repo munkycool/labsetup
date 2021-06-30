@@ -22,10 +22,10 @@ sudo apt-get update
 sudo apt upgrade
 
 # Install Open SSH Server, allow firewall, and launch the service on startup
-sudo apt-get install openssh-server
-sudo systemctl start sshd
-sudo ufw allow ssh
-sudo systemctl enable ssh
+# sudo apt-get install openssh-server
+# sudo systemctl start sshd
+# sudo ufw allow ssh
+# sudo systemctl enable ssh
 
 # Install VIM
 # sudo apt install vim -y
